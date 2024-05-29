@@ -555,10 +555,12 @@
     <img class="navbar-brand d-block d-md-none justify-content-center py-4" src="assets/logo_long_re.png">
   </div>
   <div class="page1 text-center">
+    <div class="star_bgMB"></div>
     <div class="row">
       <h4 class="subHeading">Volume 1</h4>
       <!-- <p class="subHeading2">The Specilization</p> -->
     </div>
+    <div class="new4"></div>
     <div class="row">
       <h1 class="HeadingMain" style="color: #9F8BFF;">Fintech & Financial<br>Services Landscape</h1>
     </div>
@@ -1037,5 +1039,23 @@
         observer.observe(starBg);
     });
     </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const starBgMB = document.querySelector('.star_bgMB');
+      
+          const observer = new IntersectionObserver(entries => {
+              entries.forEach(entry => {
+                  if (entry.isIntersecting) {
+                      // Remove the animate class and trigger reflow to restart the animation
+                      starBgMB.classList.remove('animate');
+                      void starBgMB.offsetWidth; // Trigger reflow to restart the animation
+                      starBgMB.classList.add('animate');
+                  }
+              });
+          }, { threshold: 0.1 });
+      
+          observer.observe(starBgMB);
+      });
+      </script>
 </body>
 </html>
